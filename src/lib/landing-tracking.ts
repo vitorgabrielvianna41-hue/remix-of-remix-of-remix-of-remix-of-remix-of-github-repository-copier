@@ -20,7 +20,7 @@ export const landingTrackingScript = `(async function(){
     try{
       var response=await fetch(url,{signal:controller.signal,credentials:'omit',referrerPolicy:'no-referrer'});
       if(!response.ok)return '';
-      var text=await response.text();var match=text.match(/^loc=([A-Z]{2})\r?$/m);
+      var text=await response.text();var match=text.match(/^loc=([A-Z]{2})\\r?$/m);
       return match?match[1]:'';
     }catch(e){return '';}finally{clearTimeout(timer);}
   }
