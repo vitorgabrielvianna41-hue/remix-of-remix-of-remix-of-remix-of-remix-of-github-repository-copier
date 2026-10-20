@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Ajustar a consulta de país para Netlify e pré-visualização, mantendo bloqueios de privacidade, e verificar carregamento no navegador.
+
 - [x] Substituir pixel e UTM pelos novos scripts, sem aviso, conferir duplicação e limites regionais e vincular privacidade.
 
 - [x] Destacar +300 Mapas Mentais, remover faixas brancas do mockup, aumentá-lo no celular e substituir as prévias pelos seis anexos de Biomedicina.
