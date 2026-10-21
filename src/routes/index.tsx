@@ -5,6 +5,7 @@ import landingHtml from "../../public/mapa.html?raw";
 import { landingTrackingScript } from "@/lib/landing-tracking";
 import { CoverflowCarousel } from "@/components/ui/coverflow-carousel";
 import kitMockupAsset from "@/assets/mockup-biomedicina.local.webp";
+import garantiaBadge from "@/assets/garantia-30-dias.png.asset.json";
 
 import depoEstudo1 from "@/assets/depoimento-estudo-1.local.webp";
 import depoEstudo2 from "@/assets/depoimento-estudo-2.local.webp";
@@ -61,11 +62,15 @@ const slides = [
 ];
 
 
+// Microsoft Clarity (project id z0yll5erkl): loaded once from the route head.
+const clarityScript = `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "z0yll5erkl");`;
+
 function rewriteAssets(html: string) {
   return html
     // carregamento leve: imagens só quando aparecem na tela
     .replace(/<img(?![^>]*\bloading=)/gi, '<img loading="lazy" decoding="async"')
     .replace(/\/assets\/kit_mockup_v2\.webp/g, kitMockup)
+    .replace(/\/assets\/garantia_30_dias\.png/g, garantiaBadge.url)
     .replace(/\/assets\/mapa_preview_(\d)\.webp/g, (_m, n) => mapas[(Number(n) - 1) % mapas.length] ?? preview1)
     .replace(/\/assets\/bonus_(\d)\.webp/g, (_m, n) => bonusImgs[(Number(n) - 1) % bonusImgs.length] ?? bonusImgs[0] ?? "")
     .replace(
@@ -123,7 +128,7 @@ export const Route = createFileRoute("/")({
       },
       { rel: "stylesheet", href: "/style.css" },
     ],
-    scripts: [{ children: landingTrackingScript }],
+    scripts: [{ children: landingTrackingScript }, { children: clarityScript }],
   }),
   component: Index,
 });
