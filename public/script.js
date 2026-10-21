@@ -93,35 +93,6 @@
       timers.push(setTimeout(show, 6000));
     }
 
-    // ---- Oferta exclusiva: upgrade para o kit completo por R$ 15,90 ----
-    var modal = root.querySelector("#upgrade-offer");
-    var openBtn = root.querySelector("[data-open-upgrade]");
-    if (modal && openBtn) {
-      var lastFocus = null;
-      var openModal = function (e) {
-        if (e) e.preventDefault();
-        lastFocus = document.activeElement;
-        modal.hidden = false;
-        document.body.classList.add("upgrade-modal-open");
-        var main = modal.querySelector(".upgrade-modal-main");
-        if (main) main.focus();
-      };
-      var closeModal = function () {
-        modal.hidden = true;
-        document.body.classList.remove("upgrade-modal-open");
-        if (lastFocus && lastFocus.focus) lastFocus.focus();
-      };
-      openBtn.addEventListener("click", openModal);
-      modal.querySelectorAll("[data-close-upgrade]").forEach(function (el) {
-        el.addEventListener("click", closeModal);
-      });
-      var onKey = function (e) {
-        if (e.key === "Escape" && !modal.hidden) closeModal();
-      };
-      document.addEventListener("keydown", onKey);
-      cleanups.push(function () { document.removeEventListener("keydown", onKey); });
-    }
-
     return function cleanup() {
       timers.forEach(clearTimeout);
       cleanups.forEach(function (fn) { fn(); });

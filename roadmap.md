@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Manter somente Kit Completo por R$ 17,90 no checkout informado; remover plano básico e upgrade e conferir oferta.
+
 - [x] Ajustar a consulta de país para Netlify e pré-visualização, mantendo bloqueios de privacidade; 10 testes passaram e o navegador solicitou os dois scripts UTMify com Brasil simulado, bloqueando Portugal.
 - [ ] Confirmar detecção na extensão da Meta no site atualizado: depende do endereço público e de teste com a extensão; nesta verificação a UTMify apresentou falha de conexão e nenhum envio à Meta foi observado.
 

@@ -98,17 +98,17 @@ const afterHtml = rewriteAssets(rawBody.slice(splitIndex + (match?.[0].length ??
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "300 Mapas Mentais de Biomedicina — Estudo Visual" },
+      { title: "Kit Completo — 300 Mapas Mentais de Biomedicina" },
       {
         name: "description",
         content:
-          "300 Mapas Mentais de Biomedicina para estudar e revisar Biologia Celular, Anatomia, Bioquímica, Microbiologia e outras disciplinas do curso.",
+          "Kit Completo por R$ 17,90: 300 Mapas Mentais de Biomedicina, 6 bônus e suporte para apoiar seus estudos e revisões.",
       },
-      { property: "og:title", content: "300 Mapas Mentais de Biomedicina" },
+      { property: "og:title", content: "Kit Completo — 300 Mapas Mentais de Biomedicina" },
       {
         property: "og:description",
         content:
-          "As principais disciplinas de Biomedicina organizadas em 300 mapas mentais para apoiar seus estudos e revisões.",
+          "300 mapas mentais de Biomedicina, 6 bônus e suporte no Kit Completo por R$ 17,90.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
