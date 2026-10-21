@@ -35,4 +35,17 @@ describe("Biomedicina single kit offer", () => {
   it("has no upgrade purchase option", () => {
     expect(page.querySelector("#upgrade-offer, [data-open-upgrade]")).toBeNull();
   });
+
+  it("gives 30 days of unconditional guarantee", () => {
+    const text = page.body.textContent ?? "";
+    expect(text).not.toMatch(/7\s+dias/i);
+    expect(page.querySelector(".warranty-card h3")?.textContent).toBe("Garantia incondicional de 30 dias");
+    expect(page.querySelector(".warranty-card p")?.textContent).toContain("em até 30 dias");
+  });
+
+  it("shows the 30-day guarantee seal in the warranty card", () => {
+    const seal = page.querySelector(".warranty-card img");
+    expect(seal?.getAttribute("src")).toBe("/assets/garantia_30_dias.png");
+    expect(seal?.getAttribute("alt")).toContain("30 dias");
+  });
 });
